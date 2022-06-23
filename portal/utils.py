@@ -291,8 +291,9 @@ def integrate_recover_expression(lowdim_list, # list of low-dimensional represen
 
     expression_scaled = pca.inverse_transform(emb_total)
     expression_log_normalized = expression_scaled * std + mean
+    integrated_data = model_opt.latent
 
-    return expression_scaled, expression_log_normalized
+    return expression_scaled, expression_log_normalized, model_opt.latent
 
 
 def calculate_mixing_metric(data, meta, methods, k=5, max_k=300, subsample=True):
